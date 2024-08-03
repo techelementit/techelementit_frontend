@@ -1,0 +1,418 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* * {
+  outline: 1px solid aqua;
+} */
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 2%;
+
+    --primary: 0 0% 100%;
+    --primary-foreground: 0 0% 6%;
+
+    --secondary: 177 100% 73%;
+    --secondary-foreground: 0 0% 0%;
+
+    --tertiary: 258 90% 66%;
+    --tertiary-foreground: 260 75% 98%;
+
+    --destructive: 337 79% 34%;
+    --destructive-foreground: 300 33% 99%;
+
+    --success: 68 99% 35%;
+    --success-foreground: 67 52% 94%;
+
+    --warning: 28 100% 82%;
+    --warning-foreground: 0 0% 0%;
+
+    --card: 0 0% 96%;
+    --card-foreground: 0 0% 96%;
+
+    --popover: 0 0% 96%;
+    --popover-foreground: 0 0% 9%;
+
+    --muted: 0 0% 79%;
+    --muted-foreground: 0, 0%, 6%;
+
+    --accent: 177 100% 92%;
+    --accent-foreground: 0, 0%, 6%;
+
+    --border: 177 37% 37%;
+    --input: 177 37% 37%;
+    --ring: 177 37% 37%;
+
+    --radius: 1rem;
+  }
+
+  .dark {
+    --background: 252 33% 6%;
+    --foreground: 22 73% 94%;
+
+    --primary: 0 0% 100%;
+    --primary-foreground: 0 0% 6%;
+
+    --secondary: 177 100% 73%;
+    --secondary-foreground: 0 0% 0%;
+
+    --tertiary: 258 90% 66%;
+    --tertiary-foreground: 260 75% 98%;
+
+    --destructive: 337 79% 34%;
+    --destructive-foreground: 300 33% 99%;
+
+    --success: 68 99% 50%;
+    --success-foreground: 170 100% 1%;
+
+    --warning: 28 100% 82%;
+    --warning-foreground: 0 0% 0%;
+
+    --card: 247 11% 15%;
+    --card-foreground: 247 11% 15%;
+
+    --popover: 247 11% 15%;
+    --popover-foreground: 240 2% 92%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --border: 177 37% 37%;
+    --input: 177 37% 37%;
+    --ring: 177 37% 37%;
+
+    --radius: 1rem;
+  }
+}
+
+.test {
+  background: hsl();
+  color: hsl(177, 37%, 37%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  /* CUSTOMIZE SCROLLBAR CLASSES */
+  ::-webkit-scrollbar {
+    @apply w-1;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-foreground/20 rounded-sm hover:bg-foreground/50 transition-colors duration-200;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-background;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* THIS WILL REMOVE THE UPPER AND LOWER ARROW ON THE NUMBER INPUT */
+/* FOR WEBKIT (CHROME, SAFARI) */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* FOR FIREFOX */
+input::-moz-number-spin-inner,
+input::-moz-number-spin-outer {
+  /* OVERRIDE FIREFOX'S DEFAULT STYLING FOR NUMBER INPUTS */
+  -moz-appearance: textfield !important;
+  margin: 0;
+}
+
+.test {
+  color: hsla(177, 100%, 73%, 0.1);
+}
+
+/* FOR WEBKIT (CHROME, SAFARI AND FIREFOX) */
+input {
+  /* FOR WEBKIT */
+  -webkit-appearance: textfield;
+  /* FOR FIREFOX */
+  -moz-appearance: textfield;
+  appearance: textfield;
+  margin: 0;
+}
+
+/* CUSTOMIZE TAILWIND CALSSES */
+@layer utilities {
+  /* NAVIGATION CLASSES */
+  .navigation_link {
+    @apply text-[16px] font-[500] leading-[0.5] before:z-[-1] before:content-[''] before:w-full before:h-[1.5px] before:top-[95%] transition-all duration-500;
+  }
+
+  .navigation_link_active {
+    @apply font-[500] text-[16px] relative text-transparent bg-gradient-to-tr from-secondary to-foreground dark:to-white bg-clip-text leading-[0.5] before:absolute before:inset-0 before:bg-gradient-to-tr before:from-secondary before:to-foreground before:dark:to-white before:z-[-1] before:content-[''] before:w-full before:h-[1.5px] before:top-[95%] transition-all duration-500;
+  }
+
+  /* CONTAINER CLASSES */
+
+  .max-container {
+    @apply mx-auto max-w-[1440px];
+  }
+
+  .padding-container {
+    @apply px-6 lg:px-20 3xl:px-0;
+  }
+
+  /* FLEX CLASSES */
+  .flexCenter {
+    @apply flex items-center justify-center;
+  }
+
+  .flexBetween {
+    @apply flex items-center justify-between;
+  }
+
+  .flexStart {
+    @apply flex items-center justify-start;
+  }
+
+  .flexEnd {
+    @apply flex items-center justify-end;
+  }
+
+  /* FONTS CLASSED */
+  .regular-64 {
+    @apply text-[64px] font-[400] leading-[120%];
+  }
+
+  .regular-40 {
+    @apply text-[40px] font-[400] leading-[120%];
+  }
+
+  .regular-32 {
+    @apply text-[32px] font-[400];
+  }
+
+  .regular-24 {
+    @apply text-[24px] font-[400];
+  }
+
+  .regular-20 {
+    @apply text-[20px] font-[400];
+  }
+
+  .regular-18 {
+    @apply text-[18px] font-[400];
+  }
+
+  .regular-16 {
+    @apply text-[16px] font-[400];
+  }
+
+  .regular-14 {
+    @apply text-[14px] font-[400];
+  }
+  /* MEDIUM */
+
+  .medium-14 {
+    @apply text-[14px] font-[500];
+  }
+  .medium-16 {
+    @apply text-[16px] font-[500];
+  }
+
+  /* BOLD */
+  .bold-88 {
+    @apply text-[88px] font-[700] leading-[120%];
+  }
+
+  .bold-64 {
+    @apply text-[64px] font-[700] leading-[120%];
+  }
+
+  .bold-52 {
+    @apply text-[52px] font-[700] leading-[120%];
+  }
+
+  .bold-40 {
+    @apply text-[40px] font-[700] leading-[120%];
+  }
+
+  .bold-32 {
+    @apply text-[32px] font-[700] leading-[120%];
+  }
+
+  .bold-20 {
+    @apply text-[20px] font-[700];
+  }
+
+  .bold-18 {
+    @apply text-[18px] font-[700];
+  }
+
+  .bold-16 {
+    @apply text-[16px] font-[700];
+  }
+
+  /* COMPONENT CLASSES */
+
+  /* FORM CLASSES */
+  .input-label {
+    @apply text-[15px] lg:text-[16px] font-light md:font-[500] ml-0 md:ml-2  max-w-none truncate block leading-7 transition-all duration-300;
+  }
+  .input-field {
+    @apply block w-full rounded-lg active:bg-transparent  focus:bg-transparent bg-transparent border-2 border-primary/50 pl-2 pr-10 py-1 text-[15px] lg:text-[16px] font-light 
+    ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 text-ellipsis h-[36px] transition-all duration-300;
+  }
+  .input-error {
+    @apply text-destructive font-[500] text-sm pl-2;
+  }
+
+  .form-heading-primary {
+    @apply text-[26px] md:text-[32px] font-[600] md:font-[700] max-w-[300px] md:max-w-full leading-[120%] text-foreground/80 mt-4 mb-2;
+  }
+  .form-heading-secondary {
+    @apply text-[20px] font-[400] text-foreground/60 text-center mt-2;
+  }
+
+  /* BUTTON CLASSES */
+  .btn-default-fill {
+    @apply inline-flex items-center justify-center whitespace-nowrap font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-4 pb-2 pt-[7px] cursor-pointer;
+  }
+  .btn-destructive-fill-rounded {
+    @apply inline-flex items-center justify-center whitespace-nowrap  text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 select-none
+bg-destructive text-destructive-foreground hover:!bg-destructive/90
+rounded-full px-4 py-[6px] hover:!text-destructive-foreground;
+  }
+  .btn-destructive-fill {
+    @apply inline-flex items-center justify-center whitespace-nowrap  text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 select-none
+bg-destructive text-destructive-foreground hover:!bg-destructive/90
+rounded-md px-4 py-[6px] hover:!text-destructive-foreground;
+  }
+
+  .dropdown-triger-form {
+    @apply rounded-lg active:bg-transparent  focus:bg-transparent bg-transparent border-2 border-primary/50 h-[36px] text-muted-foreground   text-base font-light focus-visible:ring-0 focus:ring-0 text-ellipsis;
+  }
+  .dropdown-icon {
+    @apply whitespace-nowrap mr-1 opacity-80 w-[18px] h-[18px] cursor-pointer;
+  }
+
+  /* DASHBOARD CLASSES */
+  .heading-primary {
+    @apply text-[32px] font-[500] text-foreground leading-7 text-ellipsis;
+  }
+  .heading-secondary {
+    @apply text-[24px] font-[500] text-foreground leading-7 text-ellipsis;
+  }
+  .heading-tertiary {
+    @apply text-[20px] font-[400] text-foreground/90 leading-7 text-ellipsis;
+  }
+  .paragraph {
+    @apply text-[16px] font-[400] text-foreground/90 leading-7  max-w-none truncate;
+  }
+  .breakpoint {
+    @apply !bg-red-500 sm:!bg-red-500 md:!bg-blue-500 lg:!bg-green-500 xl:!bg-yellow-500 2xl:!bg-pink-500;
+  }
+}
+/* IMAGE LAZY LOAD CLASSES */
+.LazyLoad {
+  opacity: 0;
+  transition: all 1s ease-in-out;
+}
+
+.is-visible {
+  opacity: 1;
+}
+
+/* HIDE SCROLLBAR FRO CHROME, SAFARI AND OPERA */
+.scroll-hidden::-webkit-scrollbar {
+  display: none;
+}
+
+/* HIDE SCROLLBAR FOR IE, EDGE AND FIREFOX */
+.scroll-hidden {
+  -ms-overflow-style: none; /* IE AND EDGE */
+  scrollbar-width: none; /* FIREFOX */
+}
+
+/* REACT DATE-PICKER CUSTOM CLASSES */
+.react-datepicker__day--selected {
+  background: hsl(155, 54%, 88%) !important;
+  color: hsl(160, 7%, 9%) !important;
+}
+.react-datepicker__header {
+  background: hsl(154, 53%, 94%) !important;
+  border-bottom: 2px solid hsl(154, 53%, 94%) !important;
+}
+
+/* * {
+  outline: red 1px solid;
+} */
+
+/* INFINITE CAROUSAL CLASSES */
+.carousal_container {
+  width: 100%;
+}
+
+.carousal_sub_container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.carousal_container[data-animated="true"] {
+  overflow: hidden;
+}
+
+.carousal_container[data-animated="true"] .carousal_sub_container {
+  width: max-content;
+  flex-wrap: nowrap;
+  animation: scroll var(--_animation-duration, 40s)
+    var(--_animation-direction, forwards) linear infinite;
+}
+
+.carousal_container[data-direction="right"] {
+  --_animation-direction: reverse;
+}
+.carousal_container[data-direction="left"] {
+  --_animation-direction: forwards;
+}
+
+.carousal_container[data-speed="fast"] {
+  --_animation-duration: 50s;
+}
+.carousal_container[data-speed="medium"] {
+  --_animation-duration: 150s;
+}
+
+.carousal_container[data-speed="slow"] {
+  --_animation-duration: 450s;
+}
+
+@keyframes scroll {
+  to {
+    transform: translate(calc(-50% - 0.5rem));
+  }
+}
+.carousal_container:hover .carousal_sub_container {
+  animation-play-state: paused;
+}
+
+.carousal_container_mask {
+  overflow: hidden;
+  -webkit-mask: linear-gradient(
+    90deg,
+    transparent,
+    white 30%,
+    white 70%,
+    transparent
+  );
+  mask: linear-gradient(90deg, transparent, white 30%, white 70%, transparent);
+}
